@@ -92,3 +92,13 @@ SELECT
 FROM matches
 WHERE tournament_category = 'Champions League'
   AND MATCH_STATUS = 'Available';
+
+
+
+
+-- STEP 8 : Query 2, SQL Queries
+SELECT 
+  user_id, full_name, email
+FROM users
+WHERE full_name ILIKE 'Tanvir%'
+  OR full_name ILIKE '%Haque%';
