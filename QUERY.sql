@@ -27,3 +27,22 @@ CREATE TABLE matches (
   base_ticket_price NUMERIC(10,2) NOT NULL, 
   match_status VARCHAR(50) NOT NULL 
 );
+
+
+-- STEP 3: CREATE TABLES (SCHEMA)
+CREATE TABLE bookings(
+  booking_id INT PRIMARY KEY,
+  user_id INT NOT NULL,
+  match_id INT NOT NULL,
+  seat_number VARCHAR(20),
+  payment_status VARCHAR(50),
+  total_cost NUMERIC(10,2) NOT NULL,
+
+  CONSTRAINT fk_booking_user
+    FOREIGN KEY (user_id)
+    REFERENCES users(user_id),
+
+  CONSTRAINT fk_booking_match
+    FOREIGN KEY (match_id)
+    REFERENCES matches(match_id)
+);
